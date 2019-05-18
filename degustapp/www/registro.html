@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Directorio Gastronómico</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+
+    <style>
+
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+    </style>
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="js/jquery.min-2.1.4.js"></script>
+    <script src="js/jquery-ui.min-1.11.4.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="vendor/waves/waves.min.js"></script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="js/nativedroid2.js"></script>
+    <script src="js/nd2settings.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+    <link rel="stylesheet" href="vendor/wow/animate.css" />
+    <link rel="stylesheet" href="css/nativedroid2.css" />
+    <script src="js/sesion.js"></script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhwmok_RYD7YCVP-iSW2ayGmDfJzhyLng"></script>
+<script>
+$(document).ready(function(){
+
+$("#back").animate({backgroundPositionY:"500px"},5000);
+
+});
+</script>
+    </head>
+    <body onload="initialize()">
+    <!-- INICIO PRINCIPAL -->
+
+<!-- INICIO Registro Principal DegustApp -->
+<div id="back" style="background: url('img/icono144.png') no-repeat;width:auto;height:900px;background-position:center">
+
+      <label for="text-basic" style="color:white;">Nick:</label>
+      <input type="text" name="nick" id="nick" placeholder="Nick">
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+
+      <label for="text-basic">Nombre:</label>
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+
+      <label for="text-basic">Apellido:</label>
+      <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+
+      <label for="date">Nacimiento:</label>
+      <input type="date" name="nacimiento" id="nacimiento" placeholder="Nacimiento">
+
+      <label for="text-basic">Correo:</label>
+      <input type="email" name="email" id="email" placeholder="Correo">
+
+      <label for="tel">Celular:</label>
+      <input type="tel" name="tel" id="tel" placeholder="Celular">
+
+</div><!-- FIN Configuración -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>

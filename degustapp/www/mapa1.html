@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Mapa</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+
+    <style>
+
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+    </style>
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="js/jquery.min-2.1.4.js"></script>
+    <script src="js/jquery-ui.min-1.11.4.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="vendor/waves/waves.min.js"></script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="js/nativedroid2.js"></script>
+    <script src="js/nd2settings.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+    <link rel="stylesheet" href="vendor/wow/animate.css" />
+    <link rel="stylesheet" href="css/nativedroid2.css" />
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhwmok_RYD7YCVP-iSW2ayGmDfJzhyLng"></script>
+    <script type="text/javascript">
+
+    // PASAR VARIABLES (coordenadas) POR URL
+function obtenerVariables( name ){
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp ( regexS );
+  var tmpURL = window.location.href;
+  var results = regex.exec( tmpURL );
+  if( results == null )
+    return"";
+  else
+    return results[1];
+}
+
+var latitud = obtenerVariables( 'lat' );
+var longitud = obtenerVariables( 'lon' );
+var nombre = obtenerVariables( 'nom' );
+// PASAR VARIABLES POR URL
+//alert(latitud);
+//alert(longitud);
+// MAPA
+function onLoad() {
+
+$("h1").append('<strong>'+nombre+'</strong>');
+          // Initialize Google Maps
+          var mapOptions = {
+            center:new google.maps.LatLng(latitud, longitud),
+            zoom: 16
+          }
+          var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+var marker = new google.maps.Marker({
+              map: map,
+              position: new google.maps.LatLng(latitud, longitud),
+              animation: google.maps.Animation.DROP,
+              title: "hola"
+            })
+}
+// FIN MAPA
+//$("#map_canvas").append("<div id=\"map_canvas\" style=\"width:300px;height:300px;min-width:100%;min-height:100%;\"></div>");
+    </script>
+</head>
+<body onload="onLoad()">
+<!-- MAPA -->
+<div data-role="page" id="mapa" data-theme="a" data-dom-cache="false">
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <h1 style="text-transform: none;"></h1>
+    <a data-rel="back" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.1s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a onclick="shareToOptions()" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-share"></i></a>
+  </div>
+
+    <div id="map_canvas" style="width:300px;height:500px;min-width:100%;min-height:100%;"></div>
+           
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+</div>
+
+   </body>
+</html>

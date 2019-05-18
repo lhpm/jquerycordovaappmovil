@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Directorio Gastronómico</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <script src="js/jquery.min-2.1.4.js"></script>
+
+    <style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+}
+
+#myVideo {
+    position: fixed;
+    right: -20%;
+    bottom: 0;
+width:250%;
+max-width:1280px;
+height:auto;
+}
+
+.content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+#myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+#myBtn:hover {
+    background: #ddd;
+    color: black;
+}
+</style>
+
+    </head>
+    <body>
+
+<video autoplay muted loop id="myVideo">
+  <source src="video/588711880.mp4" type="video/mp4">
+  El Navegador no soporta Video HTML5.
+</video>
+
+<div class="content">
+  <h1>DegustApp Iniciar</h1>
+  <!-- INICIO Registro Principal DegustApp -->
+      <input type="text" name="nick" id="nick" placeholder="Nick">
+
+      <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+      <a href="principal.html" style="color:white;"><h2>Entra a DegustApp</h2></a>
+<!-- FIN Registro Principal DegustApp -->
+  <p></p>
+  <button id="myBtn" onclick="myFunction()">Parar</button>
+</div>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Parar";
+  } else {
+    video.pause();
+    btn.innerHTML = "Seguir";
+  }
+}
+</script>
+
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>

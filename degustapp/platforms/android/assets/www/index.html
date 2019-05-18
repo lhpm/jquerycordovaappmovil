@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Directorio Gastronómico</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <style>
+
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+    </style>
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="js/jquery.min-2.1.4.js"></script>
+    <script src="js/jquery-ui.min-1.11.4.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="vendor/waves/waves.min.js"></script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="js/nativedroid2.js"></script>
+    <script src="js/nd2settings.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+    <link rel="stylesheet" href="vendor/wow/animate.css" />
+    <link rel="stylesheet" href="css/nativedroid2.css" />
+    <script src="js/degustapp.js"></script>
+    <script src="js/degustapplistview.js"></script>
+    <script src="js/internacional.js"></script>
+    <script src="js/rapida.js"></script>
+    <script src="js/bares.js"></script>
+    <script src="js/panaderia.js"></script>
+    <script src="js/recreacion.js"></script>
+    <script src="js/ejecutivo.js"></script>
+    <script src="js/tipica.js"></script>
+
+    <script src="js/internacional2.js"></script>
+    <script src="js/rapida2.js"></script>
+    <script src="js/bares2.js"></script>
+    <script src="js/panaderia2.js"></script>
+    <script src="js/recreacion2.js"></script>
+    <script src="js/ejecutivo2.js"></script>
+    <script src="js/tipica2.js"></script>
+
+    <script src="js/eventos.js"></script>
+    <script src="js/favoritos.js"></script>
+    <script src="js/menudia.js"></script>
+    <script src="js/promociones.js"></script>
+    <script src="js/ranking.js"></script>
+
+    <script src="js/config.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+        function salir(){
+
+            navigator.app.exitApp();
+
+        }
+
+        function noti(){
+cordova.plugins.notification.local.schedule({
+title: 'My first notification',
+text: 'Thats pretty easy...',
+foreground: true
+});
+}
+
+</script>
+
+    </head>
+    <body>
+    <!-- INICIO PRINCIPAL -->
+
+<div data-role="page" id="principal" data-theme="a" style="background-color: #FFFFFF;" data-dom-cache="true">
+
+  <div data-role="panel" id="panel1" data-display="overlay" data-position-fixed="true" data-theme="a" style="color: #1D86DF;background-color: #F0F0F0;text-align:center;"> 
+<div class='nd2-sidepanel-profile wow fadeInDown'>
+          <img class='profile-background' src="img/logonuevoa.png" />
+          <div class="row">
+            <div class='col-xs-4 center-xs'>
+              <div class='box'>
+                <img class="profile-thumbnail" src="img/icon-144-xxhdpi.png" />
+              </div>
+            </div>
+            <div class='col-xs-8'>
+              <div class='box profile-text'>
+                <strong>DegustApp</strong>
+                <span class='subline'></span>
+              </div>
+            </div>
+          </div>
+        </div>
+    <ul data-role="listview" data-icon="false" data-theme="a">
+    <center>
+       <li><a href="#directorio" class="ui-btn ui-btn-icon-block" data-transition="none" style="color: #5B5B5B;"><i class='zmdi zmdi-search zmd-3x' style="color:red;"></i>Directorio</a></li>
+       <li><a href="#menu_dia" class="ui-btn ui-btn-icon-block" data-transition="none" style="color: #5B5B5B;"><i class='zmdi zmdi-calendar zmd-3x'></i>Menú del día</a></li>
+       <li><a href="#eventos" class="ui-btn ui-btn-icon-block" data-transition="none" style="color: #5B5B5B;"><i class='zmdi zmdi-view-agenda zmd-3x'></i>Eventos</a></li>
+       <li><a href="#promociones" class="ui-btn ui-btn-icon-block" data-transition="none" style="color: #5B5B5B;"><i class='zmdi zmdi-flag zmd-3x'></i>Promociones</a></li>
+       <li><a href="#ranking" class="ui-btn ui-btn-icon-block" data-transition="none" style="color: #5B5B5B;"><i class='zmdi zmdi-star zmd-3x'></i>Ranking</a></li>
+       <li><a href="#favoritos" class="ui-btn ui-btn-icon-block" data-transition="none" style="color: #5B5B5B;"><i class='zmdi zmdi-favorite zmd-3x'></i>Favoritos</a></li>
+       <li><a href="#configuracion" class="ui-btn ui-btn-icon-block" data-transition="none" style="color: #5B5B5B;"><i class='zmdi zmdi-settings zmd-3x'></i>Configuración</a></li>
+       <li><a onclick="salir()" class="ui-btn ui-btn-icon-block" data-transition="none" style="color: #5B5B5B;"><i class='zmdi zmdi-power-off zmd-3x'></i>Salir</a></li>
+       </center>
+    </ul>
+  </div>
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">DegustApp</h1>
+    <a href="#panel1" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-menu" data-transition="none"></i></a>
+    <a onclick="shareToOptions()" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-share"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+
+
+<a href="#comidainternacional" class="ui-btn ui-btn-icon-block" data-transition="none"><div class="nd2-card" style="margin-top:-7px;margin-bottom:-7px;"><!-- INICIO CATEGORIA UNO -->
+
+  <div class="card-media">
+    <img src="img/categoria1.jpg">
+
+    <div class='card-media-overlay with-background' style="background: rgba(255,100,0,0.7);top:0%;margin-bottom:50%;">
+
+      <div class="card-title has-supporting-text">
+        <h3 class="card-primary-title" style="margin-top:-15px;">INTERNACIONAL</h3>
+      </div>
+
+      <div class="card-action">
+        <div class="row between-xs">
+          <div class="col-xs-12">
+            <!--<div class="box">
+              <a href="#" class="ui-btn ui-btn-inline">Action 1</a>
+              <a href="#" class="ui-btn ui-btn-inline">Action 2</a>
+            </div>-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div></a><!-- FIN CATEGORIA UNO -->
+
+<a href="#comidarapida" class="ui-btn ui-btn-icon-block" data-transition="none"><div class="nd2-card" style="margin-top:-8px;margin-bottom:-8px;"><!-- INICIO CATEGORIA DOS -->
+
+  <div class="card-media">
+    <img src="img/categoria2.jpg">
+
+    <div class='card-media-overlay with-background' style="background: rgba(100,100,0,0.7);top:0%;margin-bottom:62%;">
+
+      <div class="card-title has-supporting-text">
+        <h3 class="card-primary-title" style="margin-top:-15px;">COMIDAS RAPIDAS</h3>
+      </div>
+
+      <div class="card-action">
+        <div class="row between-xs">
+          <div class="col-xs-12">
+            <!--<div class="box">
+              <a href="#" class="ui-btn ui-btn-inline">Action 1</a>
+              <a href="#" class="ui-btn ui-btn-inline">Action 2</a>
+            </div>-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div></a><!-- FIN CATEGORIA DOS -->
+
+<a href="#baresdiscotecas" class="ui-btn ui-btn-icon-block" data-transition="none"><div class="nd2-card" style="margin-top:-8px;margin-bottom:-8px;"><!-- INICIO CATEGORIA TRES -->
+
+  <div class="card-media">
+    <img src="img/categoria3.jpg">
+
+    <div class='card-media-overlay with-background' style="background: rgba(255,50,100,0.7);top:0%;margin-bottom:42%;">
+
+      <div class="card-title has-supporting-text">
+        <h3 class="card-primary-title" style="margin-top:-15px;">BARES DISCOTECAS</h3>
+      </div>
+
+      <div class="card-action">
+        <div class="row between-xs">
+          <div class="col-xs-12">
+            <!--<div class="box">
+              <a href="#" class="ui-btn ui-btn-inline">Action 1</a>
+              <a href="#" class="ui-btn ui-btn-inline">Action 2</a>
+            </div>-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div></a><!-- FIN CATEGORIA TRES -->
+
+<a href="#panaderia" class="ui-btn ui-btn-icon-block" data-transition="none"><div class="nd2-card" style="margin-top:-8px;margin-bottom:-8px;"><!-- INICIO CATEGORIA CUATRO -->
+
+  <div class="card-media">
+    <img src="img/categoria4.jpg">
+
+    <div class='card-media-overlay with-background' style="background: rgba(180,50,255,0.7);top:0%;margin-bottom:52%;">
+
+      <div class="card-title has-supporting-text">
+        <h3 class="card-primary-title" style="margin-top:-15px;font-size:13px;">PANADERIA CAFETERIA REPOSTERIA</h3>
+      </div>
+
+      <div class="card-action">
+        <div class="row between-xs">
+          <div class="col-xs-12">
+            <!--<div class="box">
+              <a href="#" class="ui-btn ui-btn-inline">Action 1</a>
+              <a href="#" class="ui-btn ui-btn-inline">Action 2</a>
+            </div>-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div></a><!-- FIN CATEGORIA CINCO -->
+
+<a href="#recreacion" class="ui-btn ui-btn-icon-block" data-transition="none"><div class="nd2-card" style="margin-top:-8px;margin-bottom:-8px;"><!-- INICIO CATEGORIA CUATRO -->
+
+  <div class="card-media">
+    <img src="img/categoria4.jpg">
+
+    <div class='card-media-overlay with-background' style="background: rgba(20,200,80,0.7);top:0%;margin-bottom:52%;">
+
+      <div class="card-title has-supporting-text">
+        <h3 class="card-primary-title" style="margin-top:-15px;font-size:13px;">RECREACION HOBBIES PLAZOLETA</h3>
+       </div>
+
+      <div class="card-action">
+        <div class="row between-xs">
+          <div class="col-xs-12">
+            <!--<div class="box">
+              <a href="#" class="ui-btn ui-btn-inline">Action 1</a>
+              <a href="#" class="ui-btn ui-btn-inline">Action 2</a>
+            </div>-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div></a><!-- FIN CATEGORIA CINCO -->
+
+<a href="#ejecutivo" class="ui-btn ui-btn-icon-block" data-transition="none"><div class="nd2-card" style="margin-top:-8px;margin-bottom:-8px;"><!-- INICIO CATEGORIA SEIS -->
+
+  <div class="card-media">
+    <img src="img/categoria4.jpg">
+
+    <div class='card-media-overlay with-background' style="background: rgba(0,100,200,0.7);top:0%;margin-bottom:52%;">
+
+      <div class="card-title has-supporting-text">
+        <h3 class="card-primary-title" style="margin-top:-15px;">EJECUTIVO</h3>
+      </div>
+
+      <div class="card-action">
+        <div class="row between-xs">
+          <div class="col-xs-12">
+            <!--<div class="box">
+              <a href="#" class="ui-btn ui-btn-inline">Action 1</a>
+              <a href="#" class="ui-btn ui-btn-inline">Action 2</a>
+            </div>-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div></a><!-- FIN CATEGORIA SEIS -->
+
+<a href="#comidatipica" class="ui-btn ui-btn-icon-block" data-transition="none"><div class="nd2-card" style="margin-top:-8px;margin-bottom:-8px;"><!-- INICIO CATEGORIA SIETE -->
+
+  <div class="card-media">
+    <img src="img/categoria4.jpg">
+
+    <div class='card-media-overlay with-background' style="background: rgba(20,0,250,0.7);top:0%;margin-bottom:52%;">
+
+      <div class="card-title has-supporting-text">
+        <h3 class="card-primary-title" style="margin-top:-15px;">COMIDA TIPICA</h3>
+      </div>
+
+      <div class="card-action">
+        <div class="row between-xs">
+          <div class="col-xs-12">
+            <!--<div class="box">
+              <a href="#" class="ui-btn ui-btn-inline">Action 1</a>
+              <a href="#" class="ui-btn ui-btn-inline">Action 2</a>
+            </div>-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div></a><!-- FIN CATEGORIA SIETE -->
+    
+  </div><!-- FIN CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <a href="tel:312000000" style="color:#ffffff;"><img src="css/images/icons-png/phone-white.png"></a>
+  </div> 
+
+</div><!-- FIN PRINCIPAL -->
+
+<!-- INICIO DIRECTORIO -->
+<div data-role="page" id="directorio" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Directorio</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#directoriolistview" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="lista" data-autodividers="true" data-filter="true" data-filter-placeholder="Buscar en el Directorio" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN DIRECTORIO -->
+
+
+<!-- INICIO MENU DIA -->
+<div data-role="page" id="menu_dia" data-theme="a" data-dom-cache="false" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Menú del Día</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a onclick="shareToOptions()" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-share"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="menudia" data-autodividers="true" data-filter="true" data-filter-placeholder="Buscar Menu" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN MENU DIA -->
+
+
+<!-- INICIO EVENTOS -->
+<div data-role="page" id="eventos" data-theme="a" data-dom-cache="false" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Eventos</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="evento" data-autodividers="true" data-filter="true" data-filter-placeholder="Buscar Eventos" data-inset="true" data-theme="b"></ul>
+  </div>
+
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN EVENTOS -->
+
+<!-- INICIO JSON CONTENIDO EVENTOS -->
+<div data-role="page" id="paginaeventos" data-theme="a" data-dom-cache="false">
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Eventos</h1>
+    <a href="#eventos" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a onclick="shareToOptions()" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-share"></i></a>
+  </div> 
+    <div data-role="main" class="ui-content">
+
+            <div class="pagEventos" id="Eventos"></div>
+           
+    </div>
+
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+</div>
+<!-- FIN JSON CONTENIDO EVENTOS -->
+
+<!-- INICIO EVENTOS LISTVIEW-->
+<div data-role="page" id="eventoslistview" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Eventos Lista</h1>
+    <a href="#principal" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.2s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#eventos" id="ref" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='0.2s'><i class="zmdi zmdi-grid zmd-fw" data-transition="none"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <ul data-role="listview" data-theme="a" id="eventolistview" data-theme="b" data-filter-theme="b"></ul>
+  </div>
+
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN EVENTOS LISTVIEW-->
+
+<!-- INICIO JSON CONTENIDO EVENTOS LISTVIEW-->
+<div data-role="page" id="paginaeventoslistview" data-theme="a" data-dom-cache="false">
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Eventos</h1>
+    <a href="#eventoslistview" data-transition="none" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a onclick="shareToOptions()" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-share"></i></a>
+  </div> 
+    <div data-role="main" class="ui-content">
+
+            <div id="Eventoslistview"></div>
+           
+    </div>
+
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+</div>
+<!-- FIN JSON CONTENIDO EVENTOS LISTVIEW-->
+
+<!-- INICIO JSON CONTENIDO DIRECTORIO LISTVIEW-->
+<div data-role="page" id="directoriolistview" data-theme="a" data-dom-cache="false">
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Directorio lista</h1>
+    <a href="#" data-rel="back" id="ref" data-transition="none" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#directorio" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='0.2s'><i class="zmdi zmdi-grid zmd-fw" data-transition="none"></i></a>
+  </div> 
+    <div data-role="main" class="ui-content">
+
+            <ul data-role="listview" data-theme="a" id="listalistview" data-theme="b" data-filter-theme="b"></ul>
+           
+    </div>
+
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+</div>
+<!-- FIN JSON CONTENIDO DIRECTORIO LISTVIEW-->
+
+<!-- INICIO JSON CONTENIDO DETALLES -->
+<div data-role="page" id="paginadetalles" data-theme="a" data-dom-cache="false">
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+      <h1 style="text-transform: none;"><div id="Titulo"></div></h1>
+    <a href="#" data-rel="back" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+
+            <div id="Head"></div>
+
+  </div>
+
+  <div data-role="main" class="ui-content">
+
+            <div class="pagDetalles" id="Detalles" data-dom-cache="false"></div>
+           
+  </div>
+
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <strong style="font-size:21px;align:center;">Espacio Publicitario</strong>
+  </div> 
+</div>
+<!-- FIN JSON CONTENIDO DETALLES -->
+
+<!-- INICIO PROMOCIONES -->
+<div data-role="page" id="promociones" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Promociones</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a onclick="shareToOptions()" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-share"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="promocion" data-autodividers="true" data-filter="false" data-filter-placeholder="Buscar Promociones" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN PROMOCIONES -->
+
+<!-- INICIO RANKING -->
+<div data-role="page" id="ranking" data-theme="a" data-dom-cache="false" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Ranking</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a onclick="shareToOptions()" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-share"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="rankinglistview" data-autodividers="true" data-filter="false" data-filter-placeholder="Buscar Restaurant" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN RANKING -->
+
+<!-- INICIO JSON CONTENIDO FAVORITOS LISTVIEW-->
+<div data-role="page" id="favoritos" data-theme="a" data-dom-cache="false">
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Favoritos</h1>
+    <a href="#principal" id="ref" data-transition="none" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+    <ul data-role="listview" data-theme="a" id="favoritolistview" data-theme="b" data-filter-theme="b"></ul>
+  </div>
+
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+</div>
+<!-- FIN JSON CONTENIDO FAVORITOS LISTVIEW-->
+
+<!-- INICIO Configuración -->
+<div data-role="page" id="configuracion" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Configuración</h1>
+    <a href="#principal" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.2s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a onclick="shareToOptions()" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-share"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+
+    <div id="conf"></div>
+    <div id="conexion"></div>
+
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN Configuración -->
+
+
+<!-- PAGINAS CATEGORIA POR RESTAURANT -->
+
+<!-- INICIO INTERNACIONAL -->
+<div data-role="page" id="comidainternacional" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Comida Internacional</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#comidainternacional2" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="cinter" data-autodividers="true" data-filter="true" data-filter-placeholder="Buscar Comida Internacional" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN INTERNACIONAL -->
+
+<!-- INICIO INTERNACIONAL LISTVIEW -->
+<div data-role="page" id="comidainternacional2" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Comida Internacional</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#comidainternacional" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="cinter2" data-autodividers="false" data-filter="true" data-filter-placeholder="Buscar Comida Internacional" data-inset="true" data-theme="a"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN INTERNACIONAL LISTVIEW -->
+
+<!-- INICIO COMIDA RAPIDA -->
+<div data-role="page" id="comidarapida" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Comida Rápida</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#rapida2" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="crapida" data-autodividers="true" data-filter="true" data-filter-placeholder="Buscar Comida Rápida" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN COMIDA RAPIDA -->
+
+<!-- INICIO DAPIDA LISTVIEW -->
+<div data-role="page" id="rapida2" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Comida Rápida</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#comidarapida" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="crapida2" data-autodividers="false" data-filter="true" data-filter-placeholder="Buscar Comida Internacional" data-inset="true" data-theme="a"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN RAPIDA LISTVIEW -->
+
+<!-- INICIO BARES DISCOTECAS -->
+<div data-role="page" id="baresdiscotecas" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Bar Discoteca</h1>
+    <a href="#principal" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#bares2" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="bares" data-autodividers="true" data-filter="true" data-filter-placeholder="Buscar Bar Discoteca" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN BAR DISCOTECA -->
+
+<!-- INICIO BARES LISTVIEW -->
+<div data-role="page" id="bares2" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Bares, Discotecas</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#baresdiscotecas" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="bares22" data-autodividers="false" data-filter="true" data-filter-placeholder="Buscar Bares Discotecas" data-inset="true" data-theme="a"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN BARES LISTVIEW -->
+
+<!-- INICIO PANADERIA -->
+<div data-role="page" id="panaderia" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Panaderías</h1>
+    <a href="#principal" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#panaderia2" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="pan" data-autodividers="true" data-filter="true" data-filter-placeholder="Buscar Panadería Repostería" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN PANADERIA -->
+
+<!-- INICIO PANADERIA LISTVIEW -->
+<div data-role="page" id="panaderia2" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Panaderías, Pastelerías</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#panaderia" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="panaderia22" data-autodividers="false" data-filter="true" data-filter-placeholder="Buscar Panadería Repostería" data-inset="true" data-theme="a"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN PANADERIA LISTVIEW -->
+
+<!-- INICIO RECREACION -->
+<div data-role="page" id="recreacion" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Recreacion</h1>
+    <a href="#principal" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#recreacion2" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="recre" data-autodividers="true" data-filter="true" data-filter-placeholder="Buscar Lugar" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN RECREACION -->
+
+<!-- INICIO RECREACION LISTVIEW -->
+<div data-role="page" id="recreacion2" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Recreación</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#recreacion" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="recreacion22" data-autodividers="false" data-filter="true" data-filter-placeholder="Buscar Lugar" data-inset="true" data-theme="a"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN RECREACION LISTVIEW -->
+
+<!-- INICIO EJECUTIVO -->
+<div data-role="page" id="ejecutivo" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Comida Ejecutiva</h1>
+    <a href="#principal" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#ejecutivo2" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="eje" data-autodividers="true" data-filter="true" data-filter-placeholder="Buscar Comida Ejecutiva" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN COMIDA EJECUTVO -->
+
+<!-- INICIO EJECUTIVO LISTVIEW -->
+<div data-role="page" id="ejecutivo2" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Ejecutivo</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#ejecutivo" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="ejecutivo22" data-autodividers="false" data-filter="true" data-filter-placeholder="Buscar Comida Ejecutivo" data-inset="true" data-theme="a"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN EJECUTIVO LISTVIEW -->
+
+<!-- INICIO COMIDA TIPICA -->
+<div data-role="page" id="comidatipica" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Comida Típica</h1>
+    <a href="#principal" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#tipica2" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="comtip" data-autodividers="true" data-filter="true" data-filter-placeholder="Buscar Comida Típica" data-inset="true" data-theme="b"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN COMIDA TIPICA -->
+
+<!-- INICIO TTPICA LISTVIEW -->
+<div data-role="page" id="tipica2" data-theme="a" style="background-color: #FFFFFF;">
+
+  <div data-role="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false" style="display:block;position:relative;">
+    <h1 style="text-transform: none;">Comida Típica</h1>
+    <a href="#principal" id="ref" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.0s'><i class="zmdi zmdi-arrow-back zmd-fw" data-transition="none"></i></a>
+    <a href="#comidatipica" class="ui-btn ui-btn-right wow fadeIn" data-transition="none" data-wow-delay='0.0s'><i class="zmdi zmdi-format-list-bulleted zmd-fw"></i></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-icon="false" id="tipica22" data-autodividers="false" data-filter="true" data-filter-placeholder="Buscar Comida Típica" data-inset="true" data-theme="a"></ul>
+  </div><!-- FIN DIV CONTENT -->
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    <a href="tel:3120000000">Llamar</a>
+  </div> 
+
+</div><!-- FIN TIPICALISTVIEW -->
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+         <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMp8wMpsrCdTZINJ42gn555QLpYfd1itY&callback=initMap">
+    </script>
+    </body>
+</html>

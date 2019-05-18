@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Directorio Gastronómico</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+
+    <style>
+
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+    </style>
+
+    <script src="js/jquery.min-2.1.4.js"></script>
+    <script src="js/jquery-ui.min-1.11.4.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+<script>
+$(document).ready(function(){
+
+$("#titulo").html("DegustApp").css("color", "red");
+
+$("#back").css("background", "url('img/categoria1.jpg'");
+
+$("#back").animate({backgroundPositionX:"200px", backgroundPositionY:"300px"},5000);
+
+$("#back").animate({backgroundPositionX:"500px"},5000);
+
+$("#back").animate({backgroundPositionX:"200px", backgroundPositionY:"300px"},5000);
+
+$("#back").animate({backgroundPositionX:"500px"},5000);
+
+$("#back").animate({backgroundPositionY:"0px"},5000);
+
+$("#back").animate({backgroundPositionX:"500px"},5000);
+
+$("#back").animate({backgroundPositionX:"0px"},5000);
+
+$("#back").animate({backgroundPositionY:"500px"},5000);
+
+//$("#back").css("background", "url('img/categoria1.jpg'");
+
+    //$("#boton2").click(function(){
+        //$("div").animate({backgroundPositionY:"300px"},5000,function() {alert ('Efecto terminado!');});
+    //});
+});
+</script>
+    </head>
+    <body onload="initialize()">
+    <!-- INICIO PRINCIPAL -->
+
+<!-- INICIO Registro Principal DegustApp -->
+<div id="back" style="repeat;width:auto;height:900px;">
+
+      <label for="text-basic" style="color:white;">Nick:</label>
+      <input type="text" name="nick" id="nick" placeholder="Nick">
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+
+</div><!-- FIN Configuración -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>
